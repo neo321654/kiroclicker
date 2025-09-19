@@ -517,90 +517,94 @@ class AutoClickService : AccessibilityService() {
     
     /**
      * Main auto-click loop implementation
-     * Cycle: capture screen → find template → click → wait
+     * Cycle: capture screen → find anchor → find micro-template → click → wait
      */
     private suspend fun runAutoClickLoop(config: ClickConfig) {
-        Log.d(TAG, "Starting auto-click loop")
-        
-        // Load template image
-        val templateBitmap = loadTemplateBitmap(config.templateImagePath)
-        if (templateBitmap == null) {
-            updateState(AutoClickState.Error("Failed to load template image"))
+        Log.d(TAG, "Starting auto-click loop for config: ${config.name}")
+
+        // 1. Load anchor template image
+        val anchorBitmap = loadTemplateBitmap(config.templateImagePath)
+        if (anchorBitmap == null) {
+            updateState(AutoClickState.Error("Failed to load anchor image"))
             return
         }
-        
+
+        // 2. Create the micro-template by cropping the anchor image
+        val microTemplateBitmap = createMicroTemplate(anchorBitmap, config.clickX, config.clickY, config.searchRadius)
+        if (microTemplateBitmap == null) {
+            updateState(AutoClickState.Error("Failed to create micro-template"))
+            return
+        }
+
         while (autoClickJob?.isActive == true) {
-            // Check if we've reached the repeat limit
             if (config.repeatCount > 0 && clickCount >= config.repeatCount) {
                 Log.d(TAG, "Reached repeat limit: $clickCount")
                 updateState(AutoClickState.Completed(clickCount))
                 break
             }
-            
-            // Update state to searching
+
             updateState(AutoClickState.Searching)
-            
-            // Capture screenshot
+
+            // 3. Capture screenshot
             val screenshot = captureScreenshotSuspend()
             if (screenshot == null) {
                 Log.w(TAG, "Failed to capture screenshot, retrying...")
-                delay(1000) // Wait before retry
+                delay(1000)
                 continue
             }
-            
-            // Find template in screenshot
-            val matchResult = imageMatcher.findTemplate(
-                screenshot, 
-                templateBitmap, 
-                config.threshold
-            )
-            
-            matchResult.fold(
-                onSuccess = { result ->
-                    if (result.found && result.location != null) {
-                        // Template found, perform click
-                        val clickX = result.location.x + config.clickX
-                        val clickY = result.location.y + config.clickY
-                        
-                        if (isValidClickCoordinates(clickX, clickY)) {
-                            updateState(AutoClickState.Clicking)
-                            
-                            // Perform click and wait for completion
-                            val clickSuccess = performClickSuspend(clickX, clickY)
-                            
-                            if (clickSuccess) {
-                                clickCount++
-                                Log.d(TAG, "Click performed successfully at ($clickX, $clickY). Count: $clickCount")
-                                
-                                // Broadcast click count update
-                                onClickCountUpdated()
-                                
-                                // Update state to waiting
-                                updateState(AutoClickState.Waiting)
-                                
-                                // Wait for the specified interval
-                                delay(config.intervalMs)
+
+            // 4. Find the anchor template in the screenshot
+            val anchorMatchResult = imageMatcher.findTemplate(screenshot, anchorBitmap, config.threshold)
+
+            anchorMatchResult.fold(
+                onSuccess = { anchorResult ->
+                    if (anchorResult.found && anchorResult.location != null) {
+                        // 5. Anchor found. Now find the micro-template within the search radius
+                        val searchCenterX = anchorResult.location.x + config.clickX
+                        val searchCenterY = anchorResult.location.y + config.clickY
+
+                        val targetMatchResult = findTargetInArea(
+                            screenshot, microTemplateBitmap, searchCenterX, searchCenterY, config.searchRadius
+                        )
+
+                        if (targetMatchResult.found && targetMatchResult.location != null) {
+                            // 6. Micro-template found. Perform the click.
+                            val finalClickX = targetMatchResult.location.x
+                            val finalClickY = targetMatchResult.location.y
+
+                            if (isValidClickCoordinates(finalClickX, finalClickY)) {
+                                updateState(AutoClickState.Clicking)
+                                val clickSuccess = performClickSuspend(finalClickX, finalClickY)
+
+                                if (clickSuccess) {
+                                    clickCount++
+                                    Log.d(TAG, "Click successful at ($finalClickX, $finalClickY). Count: $clickCount")
+                                    onClickCountUpdated()
+                                    updateState(AutoClickState.Waiting)
+                                    delay(config.intervalMs)
+                                } else {
+                                    Log.w(TAG, "Click failed at ($finalClickX, $finalClickY)")
+                                    delay(1000) // Wait before retry
+                                }
                             } else {
-                                Log.w(TAG, "Click failed at ($clickX, $clickY)")
-                                delay(1000) // Wait before retry
+                                Log.w(TAG, "Invalid final click coordinates: ($finalClickX, $finalClickY)")
+                                delay(1000)
                             }
                         } else {
-                            Log.w(TAG, "Invalid click coordinates: ($clickX, $clickY)")
-                            delay(1000) // Wait before retry
+                            Log.d(TAG, "Anchor found, but micro-template not found in search area.")
+                            delay(500)
                         }
                     } else {
-                        // Template not found, continue searching
-                        Log.d(TAG, "Template not found (confidence: ${result.confidence}), continuing search...")
-                        delay(500) // Short delay before next search
+                        Log.d(TAG, "Anchor template not found (confidence: ${anchorResult.confidence}), continuing search...")
+                        delay(500)
                     }
                 },
                 onFailure = { error ->
-                    Log.e(TAG, "Error in template matching", error)
-                    delay(1000) // Wait before retry
+                    Log.e(TAG, "Error in anchor template matching", error)
+                    delay(1000)
                 }
             )
         }
-        
         Log.d(TAG, "Auto-click loop completed")
     }
     

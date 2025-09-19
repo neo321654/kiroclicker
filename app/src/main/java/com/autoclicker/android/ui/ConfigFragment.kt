@@ -149,6 +149,16 @@ class ConfigFragment : Fragment() {
                 viewModel.setRepeatCount(count)
             }
         }
+
+        // Search radius input
+        binding.etSearchRadius.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                val radius = s?.toString()?.toIntOrNull() ?: 30
+                viewModel.setSearchRadius(radius)
+            }
+        })
     }
     
     private fun setupControlButtons() {

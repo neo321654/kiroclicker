@@ -39,6 +39,9 @@ class ConfigViewModel(application: Application) : AndroidViewModel(application) 
     
     private val _repeatCount = MutableLiveData<Int>()
     val repeatCount: LiveData<Int> = _repeatCount
+
+    private val _searchRadius = MutableLiveData<Int>()
+    val searchRadius: LiveData<Int> = _searchRadius
     
     // Current configuration
     private val _currentConfig = MutableLiveData<ClickConfig?>()
@@ -69,6 +72,7 @@ class ConfigViewModel(application: Application) : AndroidViewModel(application) 
         _autoClickState.value = AutoClickState.Idle
         _interval.value = 1000L
         _repeatCount.value = 10
+        _searchRadius.value = 30
         _isConfigurationValid.value = false
         _errorMessage.value = ""
         _clickCount.value = 0
@@ -198,6 +202,7 @@ class ConfigViewModel(application: Application) : AndroidViewModel(application) 
                     _clickCoordinates.value = Pair(config.clickX, config.clickY)
                     _interval.value = config.intervalMs
                     _repeatCount.value = config.repeatCount
+                    _searchRadius.value = config.searchRadius
                     _currentConfig.value = config
                     
                     validateConfiguration()
@@ -498,6 +503,15 @@ class ConfigViewModel(application: Application) : AndroidViewModel(application) 
                         configRepository.saveConfig(config, image)
                         configRepository.setLastUsedConfig(config)
                         Log.d("ConfigViewModel", "Final auto-save completed")
+                    } catch (e: Exception) {
+                        // Ignore errors during cleanup
+                        Log.w("ConfigViewModel", "Final auto-save failed: ${e.message}")
+                    }
+                }
+            }
+        }
+    }
+}, "Final auto-save completed")
                     } catch (e: Exception) {
                         // Ignore errors during cleanup
                         Log.w("ConfigViewModel", "Final auto-save failed: ${e.message}")
