@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Android AutoClicker</string>
+    <string name="config_title">AutoClicker Configuration</string>
+    <string name="accessibility_service_description">AutoClicker service for automated clicking</string>
+    
+    <!-- Accessibility Permission Dialog -->
+    <string name="accessibility_permission_title">Accessibility Service Required</string>
+    <string name="accessibility_permission_message">This app requires accessibility service to perform automatic clicks. Please enable the AutoClicker service in accessibility settings.</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="cancel">Cancel</string>
+    
+    <!-- Config Fragment -->
+    <string name="select_image">Select Image</string>
+    <string name="take_screenshot">Take Screenshot</string>
+    <string name="click_coordinates">Click Coordinates</string>
+    <string name="interval_ms">Interval (ms)</string>
+    <string name="repeat_count">Repeat Count</string>
+    <string name="infinite_mode">Infinite Mode</string>
+    <string name="start_autoclick">Start AutoClick</string>
+    <string name="stop_autoclick">Stop AutoClick</string>
+    <string name="save_config">Save Configuration</string>
+    <string name="load_config">Load Configuration</string>
+    
+    <!-- Validation Messages -->
+    <string name="error_no_image_selected">Please select an image template</string>
+    <string name="error_no_click_coordinates">Please set click coordinates</string>
+    <string name="error_invalid_interval">Please enter a valid interval (minimum 100ms)</string>
+    <string name="error_invalid_repeat_count">Please enter a valid repeat count</string>
+    
+    <!-- Status Messages -->
+    <string name="status_idle">Ready</string>
+    <string name="status_searching">Searching for template...</string>
+    <string name="status_clicking">Performing click</string>
+    <string name="status_waiting">Waiting...</string>
+    <string name="status_completed">Completed: %d clicks</string>
+    <string name="status_error">Error: %s</string>
+    
+    <!-- Monitoring Messages -->
+    <string name="service_not_ready">AutoClick service not ready</string>
+    <string name="accessibility_service_required">Accessibility service required</string>
+    <string name="starting_autoclick">Starting auto-click...</string>
+    <string name="stopping_autoclick">Stopping auto-click...</string>
+    <string name="autoclick_completed">Auto-click completed successfully</string>
+    <string name="autoclick_stopped">Auto-click stopped</string>
+    
+    <!-- Configuration Management -->
+    <string name="save_config_dialog_title">Save Configuration</string>
+    <string name="save_config_dialog_message">Enter a name for this configuration:</string>
+    <string name="config_name_hint">Configuration name</string>
+    <string name="save">Save</string>
+    <string name="load_config_dialog_title">Load Configuration</string>
+    <string name="load_config_dialog_message">Select a configuration to load:</string>
+    <string name="no_saved_configs">No saved configurations found</string>
+    <string name="config_saved_successfully">Configuration saved successfully</string>
+    <string name="config_loaded_successfully">Configuration loaded successfully</string>
+    <string name="error_saving_config">Error saving configuration</string>
+    <string name="error_loading_config">Error loading configuration</string>
+    <string name="error_empty_config_name">Configuration name cannot be empty</string>
+    <string name="delete_config">Delete</string>
+    <string name="delete_config_confirm_title">Delete Configuration</string>
+    <string name="delete_config_confirm_message">Are you sure you want to delete \"%s\"?</string>
+    <string name="delete">Delete</string>
+    <string name="config_deleted_successfully">Configuration deleted successfully</string>
+    <string name="error_deleting_config">Error deleting configuration</string>
+</resources>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/config_title"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Image Selection Section -->
+        <TextView
+            android:id="@+id/tv_image_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Template Image"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_image_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btn_select_image"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="@string/select_image" />
+
+            <Button
+                android:id="@+id/btn_take_screenshot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="@string/take_screenshot" />
+
+        </LinearLayout>
+
+        <!-- Image Preview -->
+        <ImageView
+            android:id="@+id/iv_template_preview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
+
+        <!-- Click Coordinates Section -->
+        <TextView
+            android:id="@+id/tv_coordinates_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/click_coordinates"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <TextView
+            android:id="@+id/tv_coordinates_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tap on the image above to set click coordinates"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tv_coordinates_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Coordinates: Not set"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" />
+
+        <!-- Settings Section -->
+        <TextView
+            android:id="@+id/tv_settings_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AutoClick Settings"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <!-- Interval Setting -->
+        <TextView
+            android:id="@+id/tv_interval_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/interval_ms"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/et_interval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="1000"
+            android:inputType="number"
+            android:layout_marginTop="4dp" />
+
+        <!-- Repeat Count Setting -->
+        <TextView
+            android:id="@+id/tv_repeat_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/repeat_count"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_repeat_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
+
+            <EditText
+                android:id="@+id/et_repeat_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="10"
+                android:inputType="number"
+                android:layout_marginEnd="8dp" />
+
+            <CheckBox
+                android:id="@+id/cb_infinite_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/infinite_mode" />
+
+        </LinearLayout>
+
+        <!-- Control Buttons -->
+        <LinearLayout
+            android:id="@+id/ll_control_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="32dp">
+
+            <Button
+                android:id="@+id/btn_start_autoclick"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="@string/start_autoclick"
+                android:backgroundTint="@android:color/holo_green_dark" />
+
+            <Button
+                android:id="@+id/btn_stop_autoclick"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="@string/stop_autoclick"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:enabled="false" />
+
+        </LinearLayout>
+
+        <!-- Configuration Management -->
+        <LinearLayout
+            android:id="@+id/ll_config_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btn_save_config"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="@string/save_config"
+                style="@style/Widget.AppCompat.Button.Borderless" />
+
+            <Button
+                android:id="@+id/btn_load_config"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="@string/load_config"
+                style="@style/Widget.AppCompat.Button.Borderless" />
+
+        </LinearLayout>
+
+        <!-- Status Display -->
+        <TextView
+            android:id="@+id/tv_status_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/status_idle"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/darker_gray"
+            android:padding="8dp" />
+
+        <!-- Click Counter -->
+        <TextView
+            android:id="@+id/tv_click_counter_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Click Count"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <TextView
+            android:id="@+id/tv_click_counter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/darker_gray"
+            android:padding="12dp" />
+
+    </LinearLayout>
+
+</ScrollView>

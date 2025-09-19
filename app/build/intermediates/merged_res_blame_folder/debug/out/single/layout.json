@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.autoclicker.android.app-mergeDebugResources-38:/layout/dialog_save_config.xml",
+        "source": "com.autoclicker.android.app-main-41:/layout/dialog_save_config.xml"
+    },
+    {
+        "merged": "com.autoclicker.android.app-mergeDebugResources-38:/layout/activity_main.xml",
+        "source": "com.autoclicker.android.app-main-41:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.autoclicker.android.app-mergeDebugResources-38:/layout/fragment_config.xml",
+        "source": "com.autoclicker.android.app-main-41:/layout/fragment_config.xml"
+    },
+    {
+        "merged": "com.autoclicker.android.app-mergeDebugResources-38:/layout/item_config.xml",
+        "source": "com.autoclicker.android.app-main-41:/layout/item_config.xml"
+    }
+]
