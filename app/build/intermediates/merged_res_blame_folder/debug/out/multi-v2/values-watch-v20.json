@@ -4,7 +4,7 @@
             "outputFile": "com.autoclicker.android.app-mergeDebugResources-37:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "/Users/kseniyademidova/.gradle/caches/8.14.3/transforms/33ff7cf61261b24379d604d266e0da53/transformed/appcompat-1.6.1/res/values-watch-v20/values-watch-v20.xml",
+                    "source": "C:\\Users\\neo32\\.gradle\\caches\\8.14.3\\transforms\\33ff7cf61261b24379d604d266e0da53\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",

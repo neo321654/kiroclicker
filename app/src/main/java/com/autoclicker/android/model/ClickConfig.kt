@@ -10,6 +10,7 @@ data class ClickConfig(
     val clickY: Int = 0,
     val intervalMs: Long = 1000L,
     val repeatCount: Int = 1, // -1 for infinite mode
+    val searchRadius: Int = 30, // Search radius for the target
     val threshold: Double = 0.8 // Match threshold for image recognition
 ) {
     companion object {

@@ -4,7 +4,7 @@
             "outputFile": "com.autoclicker.android.app-mergeDebugResources-37:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
-                    "source": "/Users/kseniyademidova/.gradle/caches/8.14.3/transforms/7bd62e16a4b6dbb28edf487242a11e10/transformed/material-1.11.0/res/values-ldrtl-v17/values-ldrtl-v17.xml",
+                    "source": "C:\\Users\\neo32\\.gradle\\caches\\8.14.3\\transforms\\7bd62e16a4b6dbb28edf487242a11e10\\transformed\\material-1.11.0\\res\\values-ldrtl-v17\\values-ldrtl-v17.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

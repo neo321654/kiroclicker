@@ -4,7 +4,7 @@
             "outputFile": "com.autoclicker.android.app-mergeDebugResources-37:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/Users/kseniyademidova/.gradle/caches/8.14.3/transforms/9f59f7a7a11f0df963f6df608d86d0b5/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "source": "C:\\Users\\neo32\\.gradle\\caches\\8.14.3\\transforms\\9f59f7a7a11f0df963f6df608d86d0b5\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/kseniyademidova/.gradle/caches/8.14.3/transforms/7bd62e16a4b6dbb28edf487242a11e10/transformed/material-1.11.0/res/values-v23/values-v23.xml",
+                    "source": "C:\\Users\\neo32\\.gradle\\caches\\8.14.3\\transforms\\7bd62e16a4b6dbb28edf487242a11e10\\transformed\\material-1.11.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,5,9,13,16,19,22,25,28,32",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -42,7 +42,7 @@
                     }
                 },
                 {
-                    "source": "/Users/kseniyademidova/.gradle/caches/8.14.3/transforms/33ff7cf61261b24379d604d266e0da53/transformed/appcompat-1.6.1/res/values-v23/values-v23.xml",
+                    "source": "C:\\Users\\neo32\\.gradle\\caches\\8.14.3\\transforms\\33ff7cf61261b24379d604d266e0da53\\transformed\\appcompat-1.6.1\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",

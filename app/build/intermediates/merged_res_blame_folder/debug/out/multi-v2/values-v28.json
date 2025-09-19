@@ -4,7 +4,7 @@
             "outputFile": "com.autoclicker.android.app-mergeDebugResources-37:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "/Users/kseniyademidova/.gradle/caches/8.14.3/transforms/33ff7cf61261b24379d604d266e0da53/transformed/appcompat-1.6.1/res/values-v28/values-v28.xml",
+                    "source": "C:\\Users\\neo32\\.gradle\\caches\\8.14.3\\transforms\\33ff7cf61261b24379d604d266e0da53\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/kseniyademidova/.gradle/caches/8.14.3/transforms/7bd62e16a4b6dbb28edf487242a11e10/transformed/material-1.11.0/res/values-v28/values-v28.xml",
+                    "source": "C:\\Users\\neo32\\.gradle\\caches\\8.14.3\\transforms\\7bd62e16a4b6dbb28edf487242a11e10\\transformed\\material-1.11.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",

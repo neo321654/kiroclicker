@@ -4,17 +4,7 @@
             "outputFile": "com.autoclicker.android.app-mergeDebugResources-37:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/kseniyademidova/.gradle/caches/8.14.3/transforms/33ff7cf61261b24379d604d266e0da53/transformed/appcompat-1.6.1/res/values-v24/values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
-                    }
-                },
-                {
-                    "source": "/Users/kseniyademidova/.gradle/caches/8.14.3/transforms/7bd62e16a4b6dbb28edf487242a11e10/transformed/material-1.11.0/res/values-v24/values-v24.xml",
+                    "source": "C:\\Users\\neo32\\.gradle\\caches\\8.14.3\\transforms\\7bd62e16a4b6dbb28edf487242a11e10\\transformed\\material-1.11.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -30,6 +20,16 @@
                         "endLines": "4,5,6,7,10,13,16,19",
                         "endColumns": "84,98,86,100,10,10,10,10",
                         "endOffsets": "427,526,613,714,913,1126,1327,1542"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\neo32\\.gradle\\caches\\8.14.3\\transforms\\33ff7cf61261b24379d604d266e0da53\\transformed\\appcompat-1.6.1\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
                     }
                 }
             ]
